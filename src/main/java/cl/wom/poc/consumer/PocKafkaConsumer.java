@@ -48,6 +48,9 @@ public class PocKafkaConsumer {
 				for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
 					log.info("Offset = {}, partition={}, key={}, value={}", consumerRecord.offset(),
 							consumerRecord.partition(), consumerRecord.key(), consumerRecord.value());
+				
+						Thread.sleep(0);
+					consumerRecord.commit();
 				}
 			}
 		} catch (Exception e) {
